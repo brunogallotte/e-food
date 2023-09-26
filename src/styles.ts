@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, styled } from 'styled-components'
 
 export const cores = {
   beje: '#FFF8F2',
@@ -19,4 +19,10 @@ export const GlobalCss = createGlobalStyle`
     background-color: ${cores.beje};
     color: ${cores.vermelho};
   }
+`
+
+export const Container = styled.div`
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
 `
