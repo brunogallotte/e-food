@@ -1,0 +1,52 @@
+import styled from 'styled-components'
+import { cores } from '../../styles'
+import { TagContainer } from '../Tag/styles'
+
+export const Card = styled.div`
+  background-color: ${cores.branca};
+  margin-bottom: 48px;
+
+  ${TagContainer} {
+    margin-right: 8px;
+  }
+`
+
+export const BoxInfo = styled.div`
+  margin-top: -4px;
+  padding: 8px;
+  border-right: 1px solid #e66767;
+  border-bottom: 1px solid #e66767;
+  border-left: 1px solid #e66767;
+`
+
+export const BoxTitulo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+`
+
+export const Titulo = styled.h3`
+  fontsize: 18px;
+  font-weight: bold;
+  display: block;
+`
+
+export const Nota = styled.span`
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 8px;
+`
+
+export const BoxNota = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const Descricao = styled.p`
+  font-size: 14px;
+  line-height: 22px;
+  display: block;
+  margin-top: 16px;
+`
