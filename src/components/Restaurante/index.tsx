@@ -6,31 +6,40 @@ import {
   BoxTitulo,
   Card,
   Descricao,
+  Infos,
   Nota,
   Titulo
 } from './styles'
+
 import imgEstrela from '../../assets/images/estrela.svg'
 
-const Restaurante = () => (
+type Props = {
+  titulo: string
+  nota: string
+  infos: string[]
+  imagem: string
+  descricao: string
+}
+
+const Restaurante = ({ titulo, nota, infos, imagem, descricao }: Props) => (
   <Card>
-    <img src="//placehold.it/472x217" />
+    <img src={imagem} />
+    <Infos>
+      {infos.map((info) => (
+        <TagContainer key={info}>{info}</TagContainer>
+      ))}
+    </Infos>
     <BoxInfo>
       <BoxTitulo>
         <div>
-          <Titulo>Nome do restaurante</Titulo>
+          <Titulo>{titulo}</Titulo>
         </div>
         <BoxNota>
-          <Nota>4.9</Nota>
+          <Nota>{nota}</Nota>
           <img src={imgEstrela} />
         </BoxNota>
       </BoxTitulo>
-      <TagContainer>Destaque da semana</TagContainer>
-      <TagContainer>Japonesa</TagContainer>
-      <Descricao>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
-        magnam vitae odio quasi laudantium magni sed modi veniam fugiat harum
-        saepe expedita at rem id quibusdam maiores, quas enim ab.
-      </Descricao>
+      <Descricao>{descricao}</Descricao>
     </BoxInfo>
   </Card>
 )

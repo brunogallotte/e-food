@@ -5,6 +5,7 @@ import { TagContainer } from '../Tag/styles'
 export const Card = styled.div`
   background-color: ${cores.branca};
   margin-bottom: 48px;
+  position: relative;
 
   ${TagContainer} {
     margin-right: 8px;
@@ -23,7 +24,7 @@ export const BoxTitulo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 16px;
+  margin-top: 4px;
   margin-bottom: 8px;
 `
 
@@ -49,4 +50,10 @@ export const Descricao = styled.p`
   line-height: 22px;
   display: block;
   margin-top: 16px;
+`
+
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 8px;
 `
