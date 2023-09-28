@@ -1,6 +1,7 @@
 import { TagContainer } from '../Tag/styles'
 
 import {
+  BotaoSaibaMais,
   BoxInfo,
   BoxNota,
   BoxTitulo,
@@ -40,6 +41,7 @@ const Restaurante = ({ titulo, nota, infos, imagem, descricao }: Props) => (
         </BoxNota>
       </BoxTitulo>
       <Descricao>{descricao}</Descricao>
+      <BotaoSaibaMais>Saiba mais</BotaoSaibaMais>
     </BoxInfo>
   </Card>
 )

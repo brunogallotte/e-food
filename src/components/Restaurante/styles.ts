@@ -7,6 +7,12 @@ export const Card = styled.div`
   margin-bottom: 48px;
   position: relative;
 
+  img {
+    width: 100%;
+    max-height: 217px;
+    overflow-y: hidden;
+  }
+
   ${TagContainer} {
     margin-right: 8px;
   }
@@ -56,4 +62,16 @@ export const Infos = styled.div`
   position: absolute;
   top: 16px;
   right: 8px;
+`
+
+export const BotaoSaibaMais = styled.button`
+  background-color: ${cores.vermelho};
+  color: ${cores.beje};
+  padding: 4px 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  border: none;
+  margin-top: 16px;
+  cursor: pointer;
 `
