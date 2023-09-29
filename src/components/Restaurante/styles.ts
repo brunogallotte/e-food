@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
@@ -74,4 +75,9 @@ export const BotaoSaibaMais = styled.button`
   border: none;
   margin-top: 16px;
   cursor: pointer;
+`
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${cores.bejeEscuro};
 `

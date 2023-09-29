@@ -9,6 +9,7 @@ import {
   Descricao,
   Infos,
   Nota,
+  StyledLink,
   Titulo
 } from './styles'
 
@@ -41,7 +42,9 @@ const Restaurante = ({ titulo, nota, infos, imagem, descricao }: Props) => (
         </BoxNota>
       </BoxTitulo>
       <Descricao>{descricao}</Descricao>
-      <BotaoSaibaMais>Saiba mais</BotaoSaibaMais>
+      <BotaoSaibaMais>
+        <StyledLink to="/LaDolce">Saiba mais</StyledLink>
+      </BotaoSaibaMais>
     </BoxInfo>
   </Card>
 )
