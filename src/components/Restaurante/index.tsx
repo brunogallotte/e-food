@@ -14,22 +14,24 @@ import {
 } from './styles'
 
 import imgEstrela from '../../assets/images/estrela.svg'
+import { Restaurante } from '../../pages/Home'
 
-type Props = {
-  titulo: string
-  nota: string
-  infos: string[]
-  imagem: string
-  descricao: string
-}
-
-const Restaurante = ({ titulo, nota, infos, imagem, descricao }: Props) => (
+const RestauranteItem = ({
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa,
+  id
+}: Restaurante) => (
   <Card>
-    <img src={imagem} />
+    <img src={capa} />
     <Infos>
-      {infos.map((info) => (
-        <TagContainer key={info}>{info}</TagContainer>
-      ))}
+      <TagContainer>{tipo}</TagContainer>
+      {destacado === true ? (
+        <TagContainer>Destaque da semana</TagContainer>
+      ) : null}
     </Infos>
     <BoxInfo>
       <BoxTitulo>
@@ -37,16 +39,16 @@ const Restaurante = ({ titulo, nota, infos, imagem, descricao }: Props) => (
           <Titulo>{titulo}</Titulo>
         </div>
         <BoxNota>
-          <Nota>{nota}</Nota>
+          <Nota>{avaliacao}</Nota>
           <img src={imgEstrela} />
         </BoxNota>
       </BoxTitulo>
       <Descricao>{descricao}</Descricao>
       <BotaoSaibaMais>
-        <StyledLink to="/LaDolce">Saiba mais</StyledLink>
+        <StyledLink to={`/restaurantes/${id}`}>Saiba mais</StyledLink>
       </BotaoSaibaMais>
     </BoxInfo>
   </Card>
 )
 
-export default Restaurante
+export default RestauranteItem

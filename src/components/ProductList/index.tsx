@@ -1,10 +1,9 @@
-import ProductClass from '../../models/Product'
 import Product from '../Product'
-
+import { Prato } from '../../pages/Home/index'
 import { List } from './styles'
 
 export type Props = {
-  products: ProductClass[]
+  products: Prato[]
 }
 
 const ProductList = ({ products }: Props) => (
@@ -12,10 +11,13 @@ const ProductList = ({ products }: Props) => (
     <List>
       {products.map((product) => (
         <Product
+          id={product.id}
           key={product.id}
-          image={product.image}
-          title={product.title}
-          description={product.description}
+          foto={product.foto}
+          nome={product.nome}
+          descricao={product.descricao}
+          preco={product.preco}
+          porcao={product.porcao}
         />
       ))}
     </List>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Restaurante } from '../../pages/Home'
 import {
   BannerContainer,
   Overlay,
@@ -7,17 +8,28 @@ import {
   Titulo,
   BannerImage
 } from './styles'
-import bannerImg from '../../assets/images/bannerImg.png'
 
-const Banner = () => (
-  <BannerContainer>
-    <Overlay />
-    <TextContainer className="container">
-      <Categoria>Italiana</Categoria>
-      <Titulo>La Dolce Vita Trattoria</Titulo>
-    </TextContainer>
-    <BannerImage src={bannerImg} alt="Banner" />
-  </BannerContainer>
-)
+export type Props = {
+  restaurante: Restaurante
+}
+
+const Banner = ({ restaurante }: Props) => {
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes').then(
+      (res) => res.json()
+    )
+  }, [])
+
+  return (
+    <BannerContainer>
+      <Overlay />
+      <TextContainer className="container">
+        <Categoria>{restaurante.tipo}</Categoria>
+        <Titulo>{restaurante.titulo}</Titulo>
+      </TextContainer>
+      <BannerImage src={restaurante.capa} alt="Banner" />
+    </BannerContainer>
+  )
+}
 
 export default Banner

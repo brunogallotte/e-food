@@ -20,6 +20,7 @@ export const Card = styled.div`
 `
 
 export const BoxInfo = styled.div`
+  height: 211px;
   margin-top: -4px;
   padding: 8px;
   border-right: 1px solid #e66767;
@@ -53,6 +54,7 @@ export const BoxNota = styled.div`
 `
 
 export const Descricao = styled.p`
+  height: 110px;
   font-size: 14px;
   line-height: 22px;
   display: block;

@@ -1,62 +1,39 @@
+import { useState, useEffect } from 'react'
+
+import { useParams } from 'react-router-dom'
+
 import Banner from '../../components/Banner'
 import Footer from '../../components/Footer'
 import { Header } from '../../components/Header'
 import ProductList from '../../components/ProductList'
-import ProductClass from '../../models/Product'
-import pizza from '../../assets/images/pizza.png'
+import { Prato } from '../Home'
+import { Restaurante } from '../Home'
 
-const products: ProductClass[] = [
-  {
-    id: 1,
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 2,
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 3,
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 4,
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 5,
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 6,
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  }
-]
+const LaDolce = () => {
+  const { id } = useParams()
+  const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
+  const [prato, setPrato] = useState<Prato[]>([])
 
-const LaDolce = () => (
-  <>
-    <Header />
-    <Banner />
-    <ProductList products={products} />
-    <Footer />
-  </>
-)
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((data) => setRestaurante(data))
+  }, [id])
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((data) => setPrato(data.cardapio || []))
+  }, [id])
+
+  return (
+    <>
+      <Header />
+      {restaurante && <Banner restaurante={restaurante} />}
+      <ProductList products={prato} />
+      <Footer />
+    </>
+  )
+}
 
 export default LaDolce
