@@ -8,6 +8,7 @@ import { Header } from '../../components/Header'
 import ProductList from '../../components/ProductList'
 import { Prato } from '../Home'
 import { Restaurante } from '../Home'
+import Modal from '../../components/Modal/index'
 
 const LaDolce = () => {
   const { id } = useParams()
@@ -31,6 +32,7 @@ const LaDolce = () => {
       <Header />
       {restaurante && <Banner restaurante={restaurante} />}
       <ProductList products={prato} />
+      <Modal />
       <Footer />
     </>
   )
