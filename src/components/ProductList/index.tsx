@@ -6,7 +6,13 @@ export type Props = {
   products: Prato[]
 }
 
-const ProductList = ({ products }: Props) => (
+const ProductList = ({
+  products,
+  openModal
+}: {
+  products: Prato[]
+  openModal: () => void
+}) => (
   <div className="container">
     <List>
       {products.map((product) => (
@@ -18,6 +24,7 @@ const ProductList = ({ products }: Props) => (
           descricao={product.descricao}
           preco={product.preco}
           porcao={product.porcao}
+          openModal={openModal}
         />
       ))}
     </List>

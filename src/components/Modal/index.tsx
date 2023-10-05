@@ -10,11 +10,15 @@ import {
   TextBox
 } from './style'
 
-const Modal = () => {
+type ModalProps = {
+  closeModal: () => void
+}
+
+const Modal = ({ closeModal }: ModalProps) => {
   return (
     <ModalContainer>
       <ModalContent className="container">
-        <CloseIcon src={close} />
+        <CloseIcon src={close} onClick={closeModal} />
         <img className="imgFood" src={modalImg} />
         <TextBox>
           <h4>Pizza Marguerita</h4>
@@ -33,7 +37,7 @@ const Modal = () => {
           <button>Adicionar ao carrinho</button>
         </TextBox>
       </ModalContent>
-      <Overlay />
+      <Overlay onClick={closeModal} />
     </ModalContainer>
   )
 }

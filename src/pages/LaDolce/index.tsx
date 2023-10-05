@@ -14,6 +14,15 @@ const LaDolce = () => {
   const { id } = useParams()
   const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
   const [prato, setPrato] = useState<Prato[]>([])
+  const [modal, setModal] = useState({ isVisible: false })
+
+  const openModal = () => {
+    setModal({ isVisible: true })
+  }
+
+  const closeModal = () => {
+    setModal({ isVisible: false })
+  }
 
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
@@ -31,8 +40,8 @@ const LaDolce = () => {
     <>
       <Header />
       {restaurante && <Banner restaurante={restaurante} />}
-      <ProductList products={prato} />
-      <Modal />
+      <ProductList products={prato} openModal={openModal} />
+      {modal.isVisible && <Modal closeModal={closeModal} />}
       <Footer />
     </>
   )
