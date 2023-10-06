@@ -14,10 +14,12 @@ const LaDolce = () => {
   const { id } = useParams()
   const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
   const [prato, setPrato] = useState<Prato[]>([])
-  const [modal, setModal] = useState({ isVisible: false })
+  const [modal, setModal] = useState<{ isVisible: boolean; prato?: Prato }>({
+    isVisible: false
+  })
 
-  const openModal = () => {
-    setModal({ isVisible: true })
+  const openModal = (prato: Prato) => {
+    setModal({ isVisible: true, prato })
   }
 
   const closeModal = () => {
@@ -41,7 +43,10 @@ const LaDolce = () => {
       <Header />
       {restaurante && <Banner restaurante={restaurante} />}
       <ProductList products={prato} openModal={openModal} />
-      {modal.isVisible && <Modal closeModal={closeModal} />}
+      {modal.isVisible && modal.prato && (
+        <Modal closeModal={closeModal} prato={modal.prato} />
+      )}
+
       <Footer />
     </>
   )

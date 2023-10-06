@@ -2,7 +2,7 @@ import { Button, Card, Description, ProductTitle } from './style'
 import { Prato } from '../../pages/Home'
 
 type ProductProps = {
-  openModal: () => void
+  openModal: (prato: Prato) => void
 } & Prato
 
 const Product = ({
@@ -14,12 +14,16 @@ const Product = ({
   porcao,
   openModal
 }: ProductProps) => {
+  const handleOpenModal = () => {
+    openModal({ id, foto, preco, descricao, nome, porcao })
+  }
+
   return (
     <Card>
       <img src={foto} />
       <ProductTitle>{nome}</ProductTitle>
       <Description>{descricao}</Description>
-      <Button onClick={openModal}>Adicionar ao carrinho</Button>
+      <Button onClick={handleOpenModal}>Adicionar ao carrinho</Button>
     </Card>
   )
 }

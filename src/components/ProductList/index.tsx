@@ -11,7 +11,7 @@ const ProductList = ({
   openModal
 }: {
   products: Prato[]
-  openModal: () => void
+  openModal: (prato: Prato) => void
 }) => (
   <div className="container">
     <List>
