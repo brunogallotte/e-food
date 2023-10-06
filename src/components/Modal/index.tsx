@@ -17,6 +17,13 @@ type ModalProps = {
 }
 
 const Modal = ({ closeModal, prato }: ModalProps) => {
+  const formataPreco = (preco: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
+
   return (
     <ModalContainer>
       <ModalContent className="container">
@@ -25,7 +32,8 @@ const Modal = ({ closeModal, prato }: ModalProps) => {
         <TextBox>
           <h4>{prato.nome}</h4>
           <p>{prato.descricao}</p>
-          <button>Adicionar ao carrinho</button>
+          <p>{prato.porcao}</p>
+          <button>Adicionar ao carrinho - {formataPreco(prato.preco)}</button>
         </TextBox>
       </ModalContent>
       <Overlay onClick={closeModal} />
