@@ -11,7 +11,7 @@ export const Card = styled.div`
   img {
     width: 100%;
     max-height: 217px;
-    overflow-y: hidden;
+    object-fit: cover;
   }
 
   ${TagContainer} {
