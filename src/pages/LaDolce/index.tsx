@@ -10,10 +10,16 @@ import { Prato } from '../Home'
 import { Restaurante } from '../Home'
 import Modal from '../../components/Modal/index'
 
+import { useGetRestauranteQuery } from '../../services/api'
+
 const LaDolce = () => {
   const { id } = useParams()
-  const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
-  const [prato, setPrato] = useState<Prato[]>([])
+  const { data: restaurante } = useGetRestauranteQuery(id!)
+  const { data: prato } = useGetRestauranteQuery(id!)
+
+  const cardapio = restaurante?.cardapio || []
+
+  // const [prato, setPrato] = useState<Prato[]>([])
   const [modal, setModal] = useState<{ isVisible: boolean; prato?: Prato }>({
     isVisible: false
   })
@@ -26,23 +32,17 @@ const LaDolce = () => {
     setModal({ isVisible: false })
   }
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((data) => setRestaurante(data))
-  }, [id])
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((data) => setPrato(data.cardapio || []))
-  }, [id])
+  // useEffect(() => {
+  //   fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setPrato(data.cardapio || []))
+  // }, [id])
 
   return (
     <>
       <Header />
       {restaurante && <Banner restaurante={restaurante} />}
-      <ProductList products={prato} openModal={openModal} />
+      <ProductList products={cardapio} openModal={openModal} />
       {modal.isVisible && modal.prato && (
         <Modal closeModal={closeModal} prato={modal.prato} />
       )}
