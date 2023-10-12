@@ -38,10 +38,10 @@ export const Sidebar = styled.aside`
 
 export const CartItem = styled.li`
   display: flex;
-  border-bottom: 1px solid ${cores.beje};
   padding: 8px 8px;
   position: relative;
   background-color: ${cores.bejeEscuro};
+  margin-bottom: 16px;
 
   img {
     height: 80px;
