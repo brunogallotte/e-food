@@ -11,6 +11,7 @@ import { Restaurante } from '../Home'
 import Modal from '../../components/Modal/index'
 
 import { useGetRestauranteQuery } from '../../services/api'
+import Cart from '../../components/Cart'
 
 const LaDolce = () => {
   const { id } = useParams()
@@ -46,7 +47,7 @@ const LaDolce = () => {
       {modal.isVisible && modal.prato && (
         <Modal closeModal={closeModal} prato={modal.prato} />
       )}
-
+      <Cart />
       <Footer />
     </>
   )

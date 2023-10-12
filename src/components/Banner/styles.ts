@@ -21,7 +21,7 @@ export const Overlay = styled.div`
 
 export const TextContainer = styled.div`
   position: relative;
-  z-index: 2;
+  z-index: 1;
   color: ${cores.branca};
   display: flex;
   flex-direction: column;
