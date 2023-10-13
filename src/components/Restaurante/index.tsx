@@ -34,7 +34,7 @@ const RestauranteItem = ({
     if (isMobileScreen && descricao.length > 50) {
       return descricao.slice(0, 140) + '...'
     } else if (isTabletScreen && descricao.length > 100) {
-      return descricao.slice(0, 190) + '...'
+      return descricao.slice(0, 120) + '...'
     } else if (isLargeScreen && descricao.length > 100) {
       return descricao.slice(0, 190) + '...'
     }

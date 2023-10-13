@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Card = styled.div`
   padding: 8px;
@@ -10,6 +10,11 @@ export const Card = styled.div`
   img {
     width: 304px;
     height: 167px;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 `
 

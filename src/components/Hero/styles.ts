@@ -30,13 +30,13 @@ export const HeroTitle = styled.h1`
   font-weight: bold;
   line-height: normal;
 
-  @media (max-width: ${breakpoints.tablet}) {
-    font-size: 24px;
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 36px;
     max-width: 80%;
   }
 
-  @media (max-width: ${breakpoints.desktop}) {
-    font-size: 36px;
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 28px;
     max-width: 80%;
   }
 `
