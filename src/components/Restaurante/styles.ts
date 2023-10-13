@@ -1,17 +1,22 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const Card = styled.div`
   background-color: ${cores.branca};
   margin-bottom: 48px;
   position: relative;
+  height: 398px;
 
-  img {
+  > img {
     width: 100%;
     max-height: 217px;
     object-fit: cover;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      min-height: 217px;
+    }
   }
 
   ${TagContainer} {
@@ -20,12 +25,18 @@ export const Card = styled.div`
 `
 
 export const BoxInfo = styled.div`
-  height: 211px;
+  position: relative;
+  height: 181px;
   margin-top: -4px;
   padding: 8px;
   border-right: 1px solid #e66767;
   border-bottom: 1px solid #e66767;
   border-left: 1px solid #e66767;
+  background-color: ${cores.branca};
+
+  @media (max-width: ${breakpoints.desktop}) {
+    min-height: 190px;
+  }
 `
 
 export const BoxTitulo = styled.div`
@@ -68,15 +79,19 @@ export const Infos = styled.div`
 `
 
 export const BotaoSaibaMais = styled.button`
+  position: absolute;
   background-color: ${cores.vermelho};
   color: ${cores.beje};
   padding: 4px 6px;
+  margin-left: 8px;
+  margin-bottom: 8px;
   font-size: 14px;
   font-weight: bold;
   text-align: left;
   border: none;
-  margin-top: 16px;
   cursor: pointer;
+  bottom: 0;
+  left: 0;
 `
 
 export const StyledLink = styled(Link)`

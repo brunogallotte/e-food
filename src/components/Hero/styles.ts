@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container, cores } from '../../styles'
+import { breakpoints, Container, cores } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -9,6 +9,10 @@ export const Imagem = styled.div`
   img {
     margin-top: 64px;
     margin-bottom: 136px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      margin-bottom: 124px;
+    }
   }
 
   ${Container} {
@@ -25,4 +29,14 @@ export const HeroTitle = styled.h1`
   color: ${cores.vermelho};
   font-weight: bold;
   line-height: normal;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 24px;
+    max-width: 80%;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 36px;
+    max-width: 80%;
+  }
 `
