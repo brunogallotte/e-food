@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -21,11 +21,19 @@ export const ModalContent = styled.div`
   color: ${cores.branca};
   z-index: 2;
 
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+  }
+
   .imgFood {
     width: 280px;
     height: 280px;
     object-fit: cover;
     margin-right: 24px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      margin-bottom: 16px;
+    }
   }
 
   h4 {
@@ -63,6 +71,10 @@ export const TextBox = styled.div`
     font-weight: bold;
     border: none;
     cursor: pointer;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 100%;
+    }
   }
 `
 
