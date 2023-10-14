@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import lixeira from '../../assets/images/lixeira.png'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -34,6 +33,10 @@ export const Sidebar = styled.aside`
   padding: 40px 16px 0 16px;
   max-width: 360px;
   width: 100%;
+
+  @media (max-width: 376px) {
+    max-width: 75%;
+  }
 `
 
 export const CartItem = styled.li`

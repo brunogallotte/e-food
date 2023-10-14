@@ -25,6 +25,10 @@ export const ModalContent = styled.div`
     flex-direction: column;
   }
 
+  @media (max-width: 376px) {
+    height: 90%;
+  }
+
   .imgFood {
     width: 280px;
     height: 280px;
@@ -33,6 +37,10 @@ export const ModalContent = styled.div`
 
     @media (max-width: ${breakpoints.tablet}) {
       margin-bottom: 16px;
+    }
+
+    @media (max-width: 376px) {
+      width: 100%;
     }
   }
 

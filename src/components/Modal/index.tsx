@@ -1,6 +1,3 @@
-import { useState } from 'react'
-
-import modalImg from '../../assets/images/modal_image.png'
 import close from '../../assets/images/close.png'
 import {
   CloseIcon,

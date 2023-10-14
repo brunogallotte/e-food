@@ -1,11 +1,9 @@
-import pizza from '../../assets/images/pizza.png'
 import lixeira from '../../assets/images/lixeira.png'
 import { CartContainer, CartItem, OrderBox, Overlay, Sidebar } from './styles'
 import { Button } from '../Product/style'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-import { isTemplateSpan } from 'typescript'
 
 const Cart = () => {
   const dispatch = useDispatch()

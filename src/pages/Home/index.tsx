@@ -25,7 +25,7 @@ export interface Restaurante {
 }
 
 const Home = () => {
-  const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
+  const { data: restaurantes } = useGetRestaurantesQuery()
 
   const listaDeRestaurantes = restaurantes || []
 
