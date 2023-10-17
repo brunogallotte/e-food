@@ -2,6 +2,10 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 import { Button } from '../Product/style'
 
+type InputProps = {
+  maxWidth?: string
+}
+
 export const CheckoutContainer = styled.form`
   color: ${cores.bejeEscuro};
 
@@ -17,15 +21,6 @@ export const CheckoutContainer = styled.form`
     margin-bottom: 8px;
   }
 
-  input {
-    width: 100%;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    background-color: ${cores.bejeEscuro};
-    border: none;
-    height: 32px;
-  }
-
   ${Button} {
     margin-bottom: 8px;
   }
@@ -38,4 +33,21 @@ export const CheckoutContainer = styled.form`
   .button-container {
     margin-top: 16px;
   }
+
+  small {
+    display: block;
+    margin-bottom: 8px;
+    color: ${cores.branca};
+  }
+`
+
+export const Input = styled.input<InputProps>`
+  width: 100%;
+  max-width: ${(props) => props.maxWidth || 'auto'};
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: ${cores.bejeEscuro};
+  border: none;
+  height: 32px;
 `
