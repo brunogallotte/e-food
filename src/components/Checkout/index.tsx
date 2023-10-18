@@ -7,7 +7,7 @@ import { usePurchaseMutation } from '../../services/api'
 
 const Checkout = () => {
   const [userAdress, setUserAdress] = useState(false)
-  const [purchase, { isLoading, isSuccess, data }] = usePurchaseMutation()
+  const [purchase, { isSuccess, data }] = usePurchaseMutation()
 
   const form = useFormik({
     initialValues: {
