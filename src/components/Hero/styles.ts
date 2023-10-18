@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, Container, cores } from '../../styles'
+import { breakpoints, Container, colors } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -26,7 +26,7 @@ export const Imagem = styled.div`
 export const HeroTitle = styled.h1`
   max-width: 539px;
   font-size: 36px;
-  color: ${cores.vermelho};
+  color: ${colors.red};
   font-weight: bold;
   line-height: normal;
 

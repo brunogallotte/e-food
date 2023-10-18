@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import bannerImg from '../../assets/images/bannerImg.png'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const BannerContainer = styled.div`
   height: 280px;
@@ -22,7 +22,7 @@ export const Overlay = styled.div`
 export const TextContainer = styled.div`
   position: relative;
   z-index: 1;
-  color: ${cores.branca};
+  color: ${colors.white};
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import vectorImg from '../../assets/images/Vector.svg'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -35,5 +35,5 @@ export const HeaderText = styled.h4`
 
 export const LinkHeader = styled(Link)`
   text-decoration: none;
-  color: ${cores.vermelho};
+  color: ${colors.red};
 `

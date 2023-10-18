@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { Button } from '../Product/style'
 
 type InputProps = {
@@ -7,7 +7,7 @@ type InputProps = {
 }
 
 export const CheckoutContainer = styled.form`
-  color: ${cores.bejeEscuro};
+  color: ${colors.darkBeige};
 
   h3 {
     font-size: 16px;
@@ -37,7 +37,7 @@ export const CheckoutContainer = styled.form`
   small {
     display: block;
     margin-bottom: 8px;
-    color: ${cores.branca};
+    color: ${colors.white};
   }
 
   p {
@@ -53,7 +53,7 @@ export const Input = styled.input<InputProps>`
   margin-top: 8px;
   margin-bottom: 8px;
   padding: 8px;
-  background-color: ${cores.bejeEscuro};
+  background-color: ${colors.darkBeige};
   border: none;
   height: 32px;
 `

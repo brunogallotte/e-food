@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const FooterContainer = styled.div`
-  background-color: ${cores.bejeEscuro};
+  background-color: ${colors.darkBeige};
   display: flex;
   flex-direction: column;
   align-items: center;

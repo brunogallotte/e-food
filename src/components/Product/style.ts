@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Card = styled.div`
   padding: 8px;
-  background-color: ${cores.vermelho};
-  color: ${cores.beje};
+  background-color: ${colors.red};
+  color: ${colors.beige};
   margin-bottom: 32px;
 
   img {
@@ -34,9 +34,9 @@ export const Description = styled.p`
 `
 
 export const Button = styled.button`
-  color: ${cores.vermelho};
+  color: ${colors.red};
   padding: 4px;
-  background-color: ${cores.bejeEscuro};
+  background-color: ${colors.darkBeige};
   font-weight: bold;
   border: none;
   width: 100%;

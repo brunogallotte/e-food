@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -28,7 +28,7 @@ export const CartContainer = styled.div`
 `
 
 export const Sidebar = styled.aside`
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   z-index: 1;
   padding: 40px 16px 0 16px;
   max-width: 360px;
@@ -43,7 +43,7 @@ export const CartItem = styled.li`
   display: flex;
   padding: 8px 8px;
   position: relative;
-  background-color: ${cores.bejeEscuro};
+  background-color: ${colors.darkBeige};
   margin-bottom: 16px;
 
   img {
@@ -72,7 +72,7 @@ export const CartItem = styled.li`
 `
 
 export const OrderBox = styled.div`
-  color: ${cores.bejeEscuro};
+  color: ${colors.darkBeige};
   display: flex;
   justify-content: space-between;
   font-size: 14px;

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const Card = styled.div`
-  background-color: ${cores.branca};
+  background-color: ${colors.white};
   margin-bottom: 48px;
   position: relative;
   height: 398px;
@@ -32,7 +32,7 @@ export const BoxInfo = styled.div`
   border-right: 1px solid #e66767;
   border-bottom: 1px solid #e66767;
   border-left: 1px solid #e66767;
-  background-color: ${cores.branca};
+  background-color: ${colors.white};
 
   @media (max-width: ${breakpoints.desktop}) {
     min-height: 190px;
@@ -80,8 +80,8 @@ export const Infos = styled.div`
 
 export const BotaoSaibaMais = styled.button`
   position: absolute;
-  background-color: ${cores.vermelho};
-  color: ${cores.beje};
+  background-color: ${colors.red};
+  color: ${colors.beige};
   padding: 4px 6px;
   margin-left: 8px;
   margin-bottom: 8px;
@@ -96,5 +96,5 @@ export const BotaoSaibaMais = styled.button`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${cores.bejeEscuro};
+  color: ${colors.darkBeige};
 `

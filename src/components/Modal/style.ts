@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -17,8 +17,8 @@ export const ModalContent = styled.div`
   position: relative;
   display: flex;
   padding: 32px;
-  background-color: ${cores.vermelho};
-  color: ${cores.branca};
+  background-color: ${colors.red};
+  color: ${colors.white};
   z-index: 2;
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -71,8 +71,8 @@ export const TextBox = styled.div`
   flex-direction: column;
 
   button {
-    background-color: ${cores.beje};
-    color: ${cores.vermelho};
+    background-color: ${colors.beige};
+    color: ${colors.red};
     width: 218px;
     padding: 4px;
     font-size: 14px;
