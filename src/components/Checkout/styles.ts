@@ -39,6 +39,12 @@ export const CheckoutContainer = styled.form`
     margin-bottom: 8px;
     color: ${cores.branca};
   }
+
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 16px;
+  }
 `
 
 export const Input = styled.input<InputProps>`
