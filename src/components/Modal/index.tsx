@@ -9,6 +9,7 @@ import {
 import { Prato } from '../../pages/Home'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
+import { parseToBrl } from '../../utils'
 
 type ModalProps = {
   closeModal: () => void
@@ -24,13 +25,6 @@ const Modal = ({ closeModal, prato }: ModalProps) => {
     closeModal()
   }
 
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
-  }
-
   return (
     <ModalContainer>
       <ModalContent className="container">
@@ -41,7 +35,7 @@ const Modal = ({ closeModal, prato }: ModalProps) => {
           <p>{prato.descricao}</p>
           <p>{prato.porcao}</p>
           <button onClick={addToCart}>
-            Adicionar ao carrinho - {formataPreco(prato.preco)}
+            Adicionar ao carrinho - {parseToBrl(prato.preco)}
           </button>
         </TextBox>
       </ModalContent>

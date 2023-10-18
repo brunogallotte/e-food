@@ -6,6 +6,7 @@ import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import { useState } from 'react'
 import Checkout from '../Checkout'
+import { parseToBrl } from '../../utils'
 
 const Cart = () => {
   const [payment, setPayment] = useState(true)
@@ -14,13 +15,6 @@ const Cart = () => {
 
   const closeCart = () => {
     dispatch(close())
-  }
-
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
   }
 
   const getTotalPrice = () => {
@@ -45,7 +39,7 @@ const Cart = () => {
                   <img src={item.foto} />
                   <div>
                     <h3>{item.nome}</h3>
-                    <p>{formataPreco(item.preco)}</p>
+                    <p>{parseToBrl(item.preco)}</p>
                   </div>
                   <img
                     onClick={() => removeItem(item.id)}
@@ -57,7 +51,7 @@ const Cart = () => {
             </ul>
             <OrderBox>
               <h4>Valor Total</h4>
-              <p>{formataPreco(getTotalPrice())}</p>
+              <p>{parseToBrl(getTotalPrice())}</p>
             </OrderBox>
             <Button onClick={() => setPayment(false)}>
               Continuar com a entrega
