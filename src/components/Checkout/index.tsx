@@ -3,9 +3,11 @@ import { Button } from '../Product/style'
 import { CheckoutContainer, Input } from './styles'
 import * as Yup from 'yup'
 import { useState } from 'react'
+import { usePurchaseMutation } from '../../services/api'
 
 const Checkout = () => {
   const [userAdress, setUserAdress] = useState(false)
+  const [purchase, { isLoading, isError, data }] = usePurchaseMutation()
 
   const form = useFormik({
     initialValues: {
@@ -48,7 +50,35 @@ const Checkout = () => {
         .required('Campo obrigatório!')
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        delivery: {
+          receiver: values.nameOwner,
+          adress: {
+            description: values.adress,
+            city: values.city,
+            zipCode: values.cep,
+            number: Number(values.number),
+            complement: values.adressComplement
+          }
+        },
+        payment: {
+          card: {
+            name: values.nameOwner,
+            number: values.numberOwner,
+            code: Number(values.cardCode),
+            expires: {
+              month: Number(values.expiresMonth),
+              year: Number(values.expiresYear)
+            }
+          }
+        },
+        products: [
+          {
+            id: 1,
+            price: 10
+          }
+        ]
+      })
     }
   })
 
