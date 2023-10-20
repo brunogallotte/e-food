@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { Navigate } from 'react-router-dom'
 
-const Checkout = () => {
+const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
   const [userAdress, setUserAdress] = useState(false)
   const [purchase, { isSuccess, data }] = usePurchaseMutation()
   const { items } = useSelector((state: RootReducer) => state.cart)
@@ -245,7 +245,9 @@ const Checkout = () => {
             <Button onClick={() => fromAdressIsValid()}>
               Continuar com o pagamento
             </Button>
-            <Button>Voltar para o carrinho</Button>
+            <Button onClick={() => setPayment(false)}>
+              Voltar para o carrinho
+            </Button>
           </div>
         </>
       )}

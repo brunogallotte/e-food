@@ -9,7 +9,7 @@ import Checkout from '../Checkout'
 import { getTotalPrice, parseToBrl } from '../../utils'
 
 const Cart = () => {
-  const [payment, setPayment] = useState(true)
+  const [payment, setPayment] = useState(false)
   const dispatch = useDispatch()
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
 
@@ -25,7 +25,7 @@ const Cart = () => {
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={closeCart} />
       <Sidebar>
-        {payment ? (
+        {!payment ? (
           <>
             <ul>
               {items.map((item) => (
@@ -47,12 +47,12 @@ const Cart = () => {
               <h4>Valor Total</h4>
               <p>{parseToBrl(getTotalPrice(items))}</p>
             </OrderBox>
-            <Button onClick={() => setPayment(false)}>
+            <Button onClick={() => setPayment(true)}>
               Continuar com a entrega
             </Button>
           </>
         ) : (
-          <Checkout />
+          <Checkout setPayment={setPayment} />
         )}
       </Sidebar>
     </CartContainer>
