@@ -56,4 +56,9 @@ export const Input = styled.input<InputProps>`
   background-color: ${colors.darkBeige};
   border: none;
   height: 32px;
+
+  &.error {
+    border: 1px solid red;
+    background-color: ${colors.lightRed};
+  }
 `

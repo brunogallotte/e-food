@@ -25,14 +25,17 @@ export interface Restaurante {
 }
 
 const Home = () => {
-  const { data: restaurantes } = useGetRestaurantesQuery()
+  const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
 
   const listaDeRestaurantes = restaurantes || []
 
   return (
     <>
       <Hero />
-      <RestauranteLista restaurantes={listaDeRestaurantes} />
+      <RestauranteLista
+        isLoading={isLoading}
+        restaurantes={listaDeRestaurantes}
+      />
       <Footer />
     </>
   )

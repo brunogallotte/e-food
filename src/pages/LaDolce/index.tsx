@@ -34,7 +34,7 @@ const LaDolce = () => {
     <>
       <Header />
       {restaurante && <Banner restaurante={restaurante} />}
-      <ProductList products={cardapio} openModal={openModal} />
+      <ProductList id={id!} products={cardapio} openModal={openModal} />
       {modal.isVisible && modal.prato && (
         <Modal closeModal={closeModal} prato={modal.prato} />
       )}

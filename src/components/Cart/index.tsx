@@ -6,7 +6,7 @@ import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import { useState } from 'react'
 import Checkout from '../Checkout'
-import { parseToBrl } from '../../utils'
+import { getTotalPrice, parseToBrl } from '../../utils'
 
 const Cart = () => {
   const [payment, setPayment] = useState(true)
@@ -15,12 +15,6 @@ const Cart = () => {
 
   const closeCart = () => {
     dispatch(close())
-  }
-
-  const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.preco!)
-    }, 0)
   }
 
   const removeItem = (id: number) => {
@@ -51,7 +45,7 @@ const Cart = () => {
             </ul>
             <OrderBox>
               <h4>Valor Total</h4>
-              <p>{parseToBrl(getTotalPrice())}</p>
+              <p>{parseToBrl(getTotalPrice(items))}</p>
             </OrderBox>
             <Button onClick={() => setPayment(false)}>
               Continuar com a entrega

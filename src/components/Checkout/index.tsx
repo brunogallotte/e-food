@@ -4,10 +4,14 @@ import { CheckoutContainer, Input } from './styles'
 import * as Yup from 'yup'
 import { useState } from 'react'
 import { usePurchaseMutation } from '../../services/api'
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+import { Navigate } from 'react-router-dom'
 
 const Checkout = () => {
   const [userAdress, setUserAdress] = useState(false)
   const [purchase, { isSuccess, data }] = usePurchaseMutation()
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const form = useFormik({
     initialValues: {
@@ -82,14 +86,6 @@ const Checkout = () => {
     }
   })
 
-  const getErrorMessage = (fieldName: string, message?: string) => {
-    const isTouched = fieldName in form.touched
-    const isInvalid = fieldName in form.errors
-
-    if (isTouched && isInvalid) return message
-    return ''
-  }
-
   const fromAdressIsValid = () => {
     const isValid =
       !form.errors.adress &&
@@ -105,6 +101,18 @@ const Checkout = () => {
     }
   }
 
+  const checkoutInputHasError = (fieldName: string) => {
+    const isTouched = fieldName in form.touched
+    const isInvalid = fieldName in form.errors
+    const hasError = isTouched && isInvalid
+
+    return hasError
+  }
+
+  if (items.length === 0) {
+    return <Navigate to="/" />
+  }
+
   return !isSuccess ? (
     <CheckoutContainer onSubmit={form.handleSubmit}>
       {userAdress ? (
@@ -117,8 +125,8 @@ const Checkout = () => {
             value={form.values.nameOwner}
             onChange={form.handleChange}
             onBlur={form.handleBlur}
+            className={checkoutInputHasError('nameOwner') ? 'error' : ''}
           />
-          <small>{getErrorMessage('nameOwner', form.errors.nameOwner)}</small>
           <div className="d-flex">
             <div>
               <label htmlFor="numberOwner">Número do cartão</label>
@@ -128,10 +136,8 @@ const Checkout = () => {
                 value={form.values.numberOwner}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkoutInputHasError('numberOwner') ? 'error' : ''}
               />
-              <small>
-                {getErrorMessage('numberOwner', form.errors.numberOwner)}
-              </small>
             </div>
             <div>
               <label htmlFor="cardCode">CVV</label>
@@ -142,8 +148,8 @@ const Checkout = () => {
                 value={form.values.cardCode}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkoutInputHasError('cardCode') ? 'error' : ''}
               />
-              <small>{getErrorMessage('cardCode', form.errors.cardCode)}</small>
             </div>
           </div>
           <div className="d-flex">
@@ -155,10 +161,8 @@ const Checkout = () => {
                 value={form.values.expiresMonth}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkoutInputHasError('expiresMonth') ? 'error' : ''}
               />
-              <small>
-                {getErrorMessage('expiresMonth', form.errors.expiresMonth)}
-              </small>
             </div>
             <div>
               <label htmlFor="expiresYear">Ano de vencimento</label>
@@ -168,10 +172,8 @@ const Checkout = () => {
                 value={form.values.expiresYear}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkoutInputHasError('expiresYear') ? 'error' : ''}
               />
-              <small>
-                {getErrorMessage('expiresYear', form.errors.expiresYear)}
-              </small>
             </div>
           </div>
           <div className="button-container">
@@ -192,8 +194,8 @@ const Checkout = () => {
             value={form.values.adress}
             onChange={form.handleChange}
             onBlur={form.handleBlur}
+            className={checkoutInputHasError('adress') ? 'error' : ''}
           />
-          <small>{getErrorMessage('adress', form.errors.adress)}</small>
           <label htmlFor="city">Cidade</label>
           <Input
             id="city"
@@ -202,8 +204,8 @@ const Checkout = () => {
             value={form.values.city}
             onChange={form.handleChange}
             onBlur={form.handleBlur}
+            className={checkoutInputHasError('city') ? 'error' : ''}
           />
-          <small>{getErrorMessage('city', form.errors.city)}</small>
           <div className="d-flex">
             <div>
               <label htmlFor="cep">CEP</label>
@@ -214,8 +216,8 @@ const Checkout = () => {
                 value={form.values.cep}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkoutInputHasError('cep') ? 'error' : ''}
               />
-              <small>{getErrorMessage('cep', form.errors.cep)}</small>
             </div>
             <div>
               <label htmlFor="number">Número</label>
@@ -226,8 +228,8 @@ const Checkout = () => {
                 value={form.values.number}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkoutInputHasError('number') ? 'error' : ''}
               />
-              <small>{getErrorMessage('number', form.errors.number)}</small>
             </div>
           </div>
           <label htmlFor="adressComplement">Complemento (opcional)</label>

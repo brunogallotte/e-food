@@ -4,7 +4,8 @@ export const colors = {
   beige: '#FFF8F2',
   white: '#FFF',
   red: '#E66767',
-  darkBeige: '#FFEBD9'
+  darkBeige: '#FFEBD9',
+  lightRed: '#f5a9a9'
 }
 
 export const breakpoints = {
