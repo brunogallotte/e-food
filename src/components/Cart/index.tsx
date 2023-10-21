@@ -1,12 +1,15 @@
-import lixeira from '../../assets/images/lixeira.png'
-import { CartContainer, CartItem, OrderBox, Overlay, Sidebar } from './styles'
-import { Button } from '../Product/style'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
 import { useState } from 'react'
-import Checkout from '../Checkout'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { RootReducer } from '../../store'
+
 import { getTotalPrice, parseToBrl } from '../../utils'
+import { close, remove } from '../../store/reducers/cart'
+
+import * as S from './styles'
+import { Button } from '../Product/style'
+import Checkout from '../Checkout'
+import lixeira from '../../assets/images/lixeira.png'
 
 const Cart = () => {
   const [payment, setPayment] = useState(false)
@@ -22,14 +25,14 @@ const Cart = () => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <Sidebar>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={closeCart} />
+      <S.Sidebar>
         {!payment ? (
           <>
             <ul>
               {items.map((item) => (
-                <CartItem key={item.id}>
+                <S.CartItem key={item.id}>
                   <img src={item.foto} />
                   <div>
                     <h3>{item.nome}</h3>
@@ -40,13 +43,13 @@ const Cart = () => {
                     className="button-img"
                     src={lixeira}
                   />
-                </CartItem>
+                </S.CartItem>
               ))}
             </ul>
-            <OrderBox>
+            <S.OrderBox>
               <h4>Valor Total</h4>
               <p>{parseToBrl(getTotalPrice(items))}</p>
-            </OrderBox>
+            </S.OrderBox>
             <Button onClick={() => setPayment(true)}>
               Continuar com a entrega
             </Button>
@@ -54,8 +57,8 @@ const Cart = () => {
         ) : (
           <Checkout setPayment={setPayment} />
         )}
-      </Sidebar>
-    </CartContainer>
+      </S.Sidebar>
+    </S.CartContainer>
   )
 }
 

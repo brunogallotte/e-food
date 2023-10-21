@@ -1,35 +1,30 @@
-import logoImg from '../../assets/images/logo.svg'
-import {
-  BoxSocials,
-  FooterContainer,
-  FooterDescription,
-  SocialsItem
-} from './styles'
+import * as S from './styles'
 
+import logoImg from '../../assets/images/logo.svg'
 import instaImg from '../../assets/images/insta.svg'
 import faceImg from '../../assets/images/face.svg'
 import twitterImg from '../../assets/images/twitter.svg'
 
 const Footer = () => (
-  <FooterContainer>
+  <S.FooterContainer>
     <img src={logoImg} />
-    <BoxSocials>
-      <SocialsItem>
+    <S.BoxSocials>
+      <S.SocialsItem>
         <img src={instaImg} />
-      </SocialsItem>
-      <SocialsItem>
+      </S.SocialsItem>
+      <S.SocialsItem>
         <img src={faceImg} />
-      </SocialsItem>
-      <SocialsItem>
+      </S.SocialsItem>
+      <S.SocialsItem>
         <img src={twitterImg} />
-      </SocialsItem>
-    </BoxSocials>
-    <FooterDescription>
+      </S.SocialsItem>
+    </S.BoxSocials>
+    <S.FooterDescription>
       A efood é uma plataforma para divulgação de estabelecimentos, a
       responsabilidade pela entrega, qualidade dos produtos é toda do
       estabelecimento contratado.
-    </FooterDescription>
-  </FooterContainer>
+    </S.FooterDescription>
+  </S.FooterContainer>
 )
 
 export default Footer

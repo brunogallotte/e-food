@@ -1,21 +1,11 @@
 import { TagContainer } from '../Tag/styles'
 import { useMediaQuery } from 'react-responsive'
 
-import {
-  BotaoSaibaMais,
-  BoxInfo,
-  BoxNota,
-  BoxTitulo,
-  Card,
-  Descricao,
-  Infos,
-  Nota,
-  StyledLink,
-  Titulo
-} from './styles'
+import { Restaurante } from '../../pages/Home'
 
 import imgEstrela from '../../assets/images/estrela.svg'
-import { Restaurante } from '../../pages/Home'
+
+import * as S from './styles'
 
 const RestauranteItem = ({
   titulo,
@@ -42,30 +32,30 @@ const RestauranteItem = ({
   }
 
   return (
-    <Card>
+    <S.Card>
       <img src={capa} />
-      <Infos>
+      <S.Infos>
         <TagContainer>{tipo}</TagContainer>
         {destacado === true ? (
           <TagContainer>Destaque da semana</TagContainer>
         ) : null}
-      </Infos>
-      <BoxInfo>
-        <BoxTitulo>
+      </S.Infos>
+      <S.BoxInfo>
+        <S.BoxTitulo>
           <div>
-            <Titulo>{titulo}</Titulo>
+            <S.Titulo>{titulo}</S.Titulo>
           </div>
-          <BoxNota>
-            <Nota>{avaliacao}</Nota>
+          <S.BoxNota>
+            <S.Nota>{avaliacao}</S.Nota>
             <img src={imgEstrela} />
-          </BoxNota>
-        </BoxTitulo>
-        <Descricao>{getDescricao(descricao)}</Descricao>
-        <BotaoSaibaMais>
-          <StyledLink to={`/restaurantes/${id}`}>Saiba mais</StyledLink>
-        </BotaoSaibaMais>
-      </BoxInfo>
-    </Card>
+          </S.BoxNota>
+        </S.BoxTitulo>
+        <S.Descricao>{getDescricao(descricao)}</S.Descricao>
+        <S.BotaoSaibaMais>
+          <S.StyledLink to={`/restaurantes/${id}`}>Saiba mais</S.StyledLink>
+        </S.BotaoSaibaMais>
+      </S.BoxInfo>
+    </S.Card>
   )
 }
 

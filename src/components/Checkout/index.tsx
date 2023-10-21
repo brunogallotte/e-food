@@ -1,12 +1,15 @@
-import { useFormik } from 'formik'
-import { Button } from '../Product/style'
-import { CheckoutContainer, Input } from './styles'
-import * as Yup from 'yup'
 import { useState } from 'react'
-import { usePurchaseMutation } from '../../services/api'
 import { useSelector } from 'react-redux'
+
 import { RootReducer } from '../../store'
 import { Navigate } from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+
+import { usePurchaseMutation } from '../../services/api'
+
+import { Button } from '../Product/style'
+import { CheckoutContainer, Input } from './styles'
 
 const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
   const [userAdress, setUserAdress] = useState(false)

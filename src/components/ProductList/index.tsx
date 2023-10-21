@@ -1,8 +1,11 @@
-import Product from '../Product'
 import { Prato } from '../../pages/Home/index'
-import { List } from './styles'
+
 import { useGetRestauranteQuery } from '../../services/api'
+
+import Product from '../Product'
 import Loader from '../Loader'
+
+import { List } from './styles'
 
 export type Props = {
   products: Prato[]

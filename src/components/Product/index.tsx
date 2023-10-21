@@ -1,6 +1,8 @@
-import { Button, Card, Description, ProductTitle } from './style'
 import { Prato } from '../../pages/Home'
+
 import { useMediaQuery } from 'react-responsive'
+
+import * as S from './style'
 
 type ProductProps = {
   openModal: (prato: Prato) => void
@@ -35,12 +37,12 @@ const Product = ({
   }
 
   return (
-    <Card>
+    <S.Card>
       <img src={foto} />
-      <ProductTitle>{nome}</ProductTitle>
-      <Description>{getDescricao(descricao)}</Description>
-      <Button onClick={handleOpenModal}>Adicionar ao carrinho</Button>
-    </Card>
+      <S.ProductTitle>{nome}</S.ProductTitle>
+      <S.Description>{getDescricao(descricao)}</S.Description>
+      <S.Button onClick={handleOpenModal}>Adicionar ao carrinho</S.Button>
+    </S.Card>
   )
 }
 

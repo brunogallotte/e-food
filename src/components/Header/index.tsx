@@ -1,10 +1,11 @@
-import logo from '../../assets/images/logo.svg'
-
-import { HeaderContainer, HeaderText, LinkHeader } from './styles'
-
-import { open } from '../../store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
+
+import { open } from '../../store/reducers/cart'
+
+import logo from '../../assets/images/logo.svg'
+
+import * as S from './styles'
 
 export const Header = () => {
   const dispatch = useDispatch()
@@ -15,16 +16,16 @@ export const Header = () => {
   }
 
   return (
-    <HeaderContainer>
+    <S.HeaderContainer>
       <div className="container">
-        <HeaderText>
-          <LinkHeader to="/">Restaurantes</LinkHeader>
-        </HeaderText>
+        <S.HeaderText>
+          <S.LinkHeader to="/">Restaurantes</S.LinkHeader>
+        </S.HeaderText>
         <img src={logo} />
-        <HeaderText onClick={openCart}>
+        <S.HeaderText onClick={openCart}>
           {items.length} produto(s) no carrinho
-        </HeaderText>
+        </S.HeaderText>
       </div>
-    </HeaderContainer>
+    </S.HeaderContainer>
   )
 }
