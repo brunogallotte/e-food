@@ -1,8 +1,6 @@
 import { TagContainer } from '../Tag/styles'
 import { useMediaQuery } from 'react-responsive'
 
-import { Restaurante } from '../../pages/Home'
-
 import imgEstrela from '../../assets/images/estrela.svg'
 
 import * as S from './styles'

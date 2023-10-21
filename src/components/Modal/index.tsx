@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux'
 
 import { add, open } from '../../store/reducers/cart'
-import { Prato } from '../../pages/Home'
 
 import { parseToBrl } from '../../utils'
 

@@ -1,5 +1,3 @@
-import { Prato } from '../../pages/Home/index'
-
 import { useGetRestauranteQuery } from '../../services/api'
 
 import Product from '../Product'

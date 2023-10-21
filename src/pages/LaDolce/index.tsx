@@ -6,7 +6,6 @@ import Banner from '../../components/Banner'
 import Footer from '../../components/Footer'
 import { Header } from '../../components/Header'
 import ProductList from '../../components/ProductList'
-import { Prato } from '../Home'
 import Modal from '../../components/Modal/index'
 
 import { useGetRestauranteQuery } from '../../services/api'

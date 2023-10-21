@@ -1,5 +1,3 @@
-import { Prato } from '../../pages/Home'
-
 import { useMediaQuery } from 'react-responsive'
 
 import * as S from './style'

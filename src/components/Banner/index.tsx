@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 
-import { Restaurante } from '../../pages/Home'
 import * as S from './styles'
 
 export type Props = {
