@@ -47,18 +47,36 @@ export const CheckoutContainer = styled.form`
   }
 `
 
-export const Input = styled.input<InputProps>`
-  width: 100%;
-  max-width: ${(props) => props.maxWidth || 'auto'};
-  margin-top: 8px;
-  margin-bottom: 8px;
-  padding: 8px;
-  background-color: ${colors.darkBeige};
-  border: none;
-  height: 32px;
+// export const Input = styled.input<InputProps>`
+//   width: 100%;
+//   max-width: ${(props) => props.maxWidth || 'auto'};
+//   margin-top: 8px;
+//   margin-bottom: 8px;
+//   padding: 8px;
+//   background-color: ${colors.darkBeige};
+//   border: none;
+//   height: 32px;
 
-  &.error {
-    border: 1px solid red;
-    background-color: ${colors.lightRed};
+//   &.error {
+//     border: 1px solid red;
+//     background-color: ${colors.lightRed};
+//   }
+// `
+
+export const InputGroup = styled.div<InputProps>`
+  input {
+    width: 100%;
+    max-width: ${(props) => props.maxWidth || 'auto'};
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: ${colors.darkBeige};
+    border: none;
+    height: 32px;
+
+    &.error {
+      border: 1px solid red;
+      background-color: ${colors.lightRed};
+    }
   }
 `

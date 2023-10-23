@@ -8,8 +8,10 @@ import * as Yup from 'yup'
 
 import { usePurchaseMutation } from '../../services/api'
 
+import InputMask from 'react-input-mask'
+
 import { Button } from '../Product/style'
-import { CheckoutContainer, Input } from './styles'
+import { CheckoutContainer, InputGroup } from './styles'
 
 const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
   const [userAdress, setUserAdress] = useState(false)
@@ -121,63 +123,68 @@ const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
       {userAdress ? (
         <>
           <h3>Pagamento - Valor a pagar R$ 190,90</h3>
-          <label htmlFor="nameOwner">Nome no cartão</label>
-          <Input
-            id="nameOwner"
-            type="text"
-            value={form.values.nameOwner}
-            onChange={form.handleChange}
-            onBlur={form.handleBlur}
-            className={checkoutInputHasError('nameOwner') ? 'error' : ''}
-          />
+          <InputGroup>
+            <label htmlFor="nameOwner">Nome no cartão</label>
+            <input
+              id="nameOwner"
+              type="text"
+              value={form.values.nameOwner}
+              onChange={form.handleChange}
+              onBlur={form.handleBlur}
+              className={checkoutInputHasError('nameOwner') ? 'error' : ''}
+            />
+          </InputGroup>
           <div className="d-flex">
-            <div>
+            <InputGroup>
               <label htmlFor="numberOwner">Número do cartão</label>
-              <Input
+              <InputMask
                 id="numberOwner"
                 type="text"
                 value={form.values.numberOwner}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
                 className={checkoutInputHasError('numberOwner') ? 'error' : ''}
+                mask="9999 9999 9999 9999"
               />
-            </div>
-            <div>
+            </InputGroup>
+            <InputGroup maxWidth="87px">
               <label htmlFor="cardCode">CVV</label>
-              <Input
+              <InputMask
                 id="cardCode"
                 type="text"
-                maxWidth="87px"
                 value={form.values.cardCode}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
                 className={checkoutInputHasError('cardCode') ? 'error' : ''}
+                mask="999"
               />
-            </div>
+            </InputGroup>
           </div>
           <div className="d-flex">
-            <div>
+            <InputGroup>
               <label htmlFor="expiresMonth">Mês de vencimento</label>
-              <Input
+              <InputMask
                 id="expiresMonth"
                 type="text"
                 value={form.values.expiresMonth}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
                 className={checkoutInputHasError('expiresMonth') ? 'error' : ''}
+                mask="99"
               />
-            </div>
-            <div>
+            </InputGroup>
+            <InputGroup>
               <label htmlFor="expiresYear">Ano de vencimento</label>
-              <Input
+              <InputMask
                 id="expiresYear"
                 type="text"
                 value={form.values.expiresYear}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
                 className={checkoutInputHasError('expiresYear') ? 'error' : ''}
+                mask="99"
               />
-            </div>
+            </InputGroup>
           </div>
           <div className="button-container">
             <Button type="submit">Finalizar pagamento</Button>
@@ -189,30 +196,34 @@ const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
       ) : (
         <>
           <h3>Entrega</h3>
-          <label htmlFor="adress">Endereço</label>
-          <Input
-            id="adress"
-            type="text"
-            name="adress"
-            value={form.values.adress}
-            onChange={form.handleChange}
-            onBlur={form.handleBlur}
-            className={checkoutInputHasError('adress') ? 'error' : ''}
-          />
-          <label htmlFor="city">Cidade</label>
-          <Input
-            id="city"
-            type="text"
-            name="city"
-            value={form.values.city}
-            onChange={form.handleChange}
-            onBlur={form.handleBlur}
-            className={checkoutInputHasError('city') ? 'error' : ''}
-          />
+          <InputGroup>
+            <label htmlFor="adress">Endereço</label>
+            <input
+              id="adress"
+              type="text"
+              name="adress"
+              value={form.values.adress}
+              onChange={form.handleChange}
+              onBlur={form.handleBlur}
+              className={checkoutInputHasError('adress') ? 'error' : ''}
+            />
+          </InputGroup>
+          <InputGroup>
+            <label htmlFor="city">Cidade</label>
+            <input
+              id="city"
+              type="text"
+              name="city"
+              value={form.values.city}
+              onChange={form.handleChange}
+              onBlur={form.handleBlur}
+              className={checkoutInputHasError('city') ? 'error' : ''}
+            />
+          </InputGroup>
           <div className="d-flex">
-            <div>
+            <InputGroup>
               <label htmlFor="cep">CEP</label>
-              <Input
+              <InputMask
                 id="cep"
                 type="text"
                 name="cep"
@@ -220,11 +231,12 @@ const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
                 className={checkoutInputHasError('cep') ? 'error' : ''}
+                mask="99999-999"
               />
-            </div>
-            <div>
+            </InputGroup>
+            <InputGroup>
               <label htmlFor="number">Número</label>
-              <Input
+              <input
                 id="number"
                 type="text"
                 name="number"
@@ -233,17 +245,19 @@ const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
                 onBlur={form.handleBlur}
                 className={checkoutInputHasError('number') ? 'error' : ''}
               />
-            </div>
+            </InputGroup>
           </div>
-          <label htmlFor="adressComplement">Complemento (opcional)</label>
-          <Input
-            id="adressComplement"
-            type="text"
-            name="adressComplement"
-            value={form.values.adressComplement}
-            onChange={form.handleChange}
-            onBlur={form.handleBlur}
-          />
+          <InputGroup>
+            <label htmlFor="adressComplement">Complemento (opcional)</label>
+            <input
+              id="adressComplement"
+              type="text"
+              name="adressComplement"
+              value={form.values.adressComplement}
+              onChange={form.handleChange}
+              onBlur={form.handleBlur}
+            />
+          </InputGroup>
           <div className="button-container">
             <Button onClick={() => fromAdressIsValid()}>
               Continuar com o pagamento
