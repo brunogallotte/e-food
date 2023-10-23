@@ -15,7 +15,7 @@ import { CheckoutContainer, InputGroup } from './styles'
 
 const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
   const [userAdress, setUserAdress] = useState(false)
-  const [purchase, { isSuccess, data }] = usePurchaseMutation()
+  const [purchase, { isSuccess, data, isLoading }] = usePurchaseMutation()
   const { items } = useSelector((state: RootReducer) => state.cart)
 
   const form = useFormik({
@@ -187,7 +187,9 @@ const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
             </InputGroup>
           </div>
           <div className="button-container">
-            <Button type="submit">Finalizar pagamento</Button>
+            <Button type="submit">
+              {isLoading ? 'Finalizando compra...' : 'Finalizar pagamento'}
+            </Button>
             <Button onClick={() => setUserAdress(false)}>
               Voltar para edição de endereço
             </Button>
