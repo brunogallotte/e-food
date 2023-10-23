@@ -18,7 +18,7 @@ const ProductList = ({
   openModal: (prato: Prato) => void
   id: string
 }) => {
-  const { data: restaurante, isLoading } = useGetRestauranteQuery(id)
+  const { isLoading } = useGetRestauranteQuery(id)
 
   if (isLoading) {
     return <Loader />

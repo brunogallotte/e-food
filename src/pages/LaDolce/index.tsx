@@ -11,9 +11,13 @@ import Modal from '../../components/Modal/index'
 import { useGetRestauranteQuery } from '../../services/api'
 import Cart from '../../components/Cart'
 
+type RestaurantParams = {
+  id: string
+}
+
 const LaDolce = () => {
-  const { id } = useParams()
-  const { data: restaurante } = useGetRestauranteQuery(id!)
+  const { id } = useParams() as RestaurantParams
+  const { data: restaurante } = useGetRestauranteQuery(id)
 
   const cardapio = restaurante?.cardapio || []
 
@@ -33,7 +37,7 @@ const LaDolce = () => {
     <>
       <Header />
       {restaurante && <Banner restaurante={restaurante} />}
-      <ProductList id={id!} products={cardapio} openModal={openModal} />
+      <ProductList id={id} products={cardapio} openModal={openModal} />
       {modal.isVisible && modal.prato && (
         <Modal closeModal={closeModal} prato={modal.prato} />
       )}

@@ -273,7 +273,7 @@ const Checkout = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
     </CheckoutContainer>
   ) : (
     <CheckoutContainer>
-      <h3>Pedido Realizado - {data.orderId}</h3>
+      <h3>Pedido Realizado - {data?.orderId}</h3>
       <p>
         Estamos felizes em informar que seu pedido já está em processo de
         preparação e, em breve, será entregue no endereço fornecido.
