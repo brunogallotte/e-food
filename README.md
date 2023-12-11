@@ -1,3 +1,9 @@
+# Resumo
+Este foi um projeto desenvolvido numa espécie de desafio para conclusão do Front-end do curso de desenvolvedor Full Stack da EBAC. Utilizei o framework React.js com Create React App, dentre diversas outras tecnologias, como Redux.js para gerenciar os estados e CSS in Js com Styled-Components. 
+
+![E-food front view](https://github.com/brunogallotte/e-food/assets/131268925/e69a786f-0dbd-403e-8c21-8d8e20da8339)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
