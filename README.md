@@ -1,5 +1,3 @@
-![E-food front view](https://github.com/brunogallotte/e-food/assets/131268925/e69a786f-0dbd-403e-8c21-8d8e20da8339)
-
 <h1 align="center">
     # E-Food
 </h1>
